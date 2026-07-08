@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mappinest raster TileJSON with Mapbox GL JS</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.16.0/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; width: 100vw; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.16.0/mapbox-gl.js"></script>
+  <script>
+
+    // Mapbox GL JS needs its own runtime token. Mappinest API requests use apiKey.
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+
+    const apiKey = 'YOUR_MAPPINEST_KEY';
+
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: `https://api.mappinest.com/v1/styles/light/style.json?key=${apiKey}`,
+      center: [0, 0],
+      zoom: 1
+    });
+
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    map.on('load', () => {
+      // TileJSON lets Mapbox GL JS discover the raster tile URL and zoom range.
+      map.addSource('countries-raster', {
+        type: 'raster',
+        url: `https://api.mappinest.com/v1/tiles/mappinest.countries-raster.json?key=${apiKey}`,
+        tileSize: 256
+      });
+
+      map.addLayer({
+        id: 'countries-raster-layer',
+        type: 'raster',
+        source: 'countries-raster',
+        paint: {
+          'raster-opacity': 0.9
+        }
+      });
+    });
+  </script>
+</body>
+</html>

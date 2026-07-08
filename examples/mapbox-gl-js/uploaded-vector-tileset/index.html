@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mappinest vector TileJSON with Mapbox GL JS</title>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.16.0/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; width: 100vw; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.16.0/mapbox-gl.js"></script>
+  <script>
+
+    // Mapbox GL JS needs its own runtime token. Mappinest API requests use apiKey.
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+
+    const apiKey = 'YOUR_MAPPINEST_KEY';
+    // Use the layer id returned in TileJSON vector_layers[].id.
+    const SOURCE_LAYER = 'COUNTIES';
+
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: `https://api.mappinest.com/v1/styles/light/style.json?key=${apiKey}`,
+      center: [-98.5795, 39.8283],
+      zoom: 3.6
+    });
+
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+    map.on('load', () => {
+      // TileJSON lets Mapbox GL JS discover the tile URL, bounds, and zoom range.
+      map.addSource('mappinest-counties', {
+        type: 'vector',
+        url: `https://api.mappinest.com/v1/tiles/mappinest.COUNTIES.json?key=${apiKey}`
+      });
+
+      map.addLayer({
+        id: 'counties-fill',
+        type: 'fill',
+        source: 'mappinest-counties',
+        'source-layer': SOURCE_LAYER,
+        paint: {
+          'fill-color': '#2563eb',
+          'fill-opacity': 0.28
+        }
+      });
+
+      map.addLayer({
+        id: 'counties-line',
+        type: 'line',
+        source: 'mappinest-counties',
+        'source-layer': SOURCE_LAYER,
+        paint: {
+          'line-color': '#1d4ed8',
+          'line-width': 1
+        }
+      });
+    });
+  </script>
+</body>
+</html>

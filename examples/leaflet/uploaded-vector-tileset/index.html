@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mappinest vector TileJSON with Leaflet and MapLibre</title>
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet" />
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; width: 100vw; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@maplibre/maplibre-gl-leaflet@0.1.3/leaflet-maplibre-gl.js"></script>
+  <script>
+
+    const apiKey = 'YOUR_MAPPINEST_KEY';
+
+    const map = L.map('map').setView([39.8283, -98.5795], 4);
+    // Set this to the TileJSON vector_layers[].id value for the layer you want to draw.
+    const sourceLayer = 'COUNTIES';
+
+    const glLayer = L.maplibreGL({
+      style: `https://api.mappinest.com/v1/styles/light/style.json?key=${apiKey}`,
+      interactive: false
+    }).addTo(map);
+
+    const glMap = glLayer.getMaplibreMap();
+
+    function addCountriesLayer() {
+      if (glMap.getSource('mappinest-counties')) return;
+
+      glMap.addSource('mappinest-counties', {
+        type: 'vector',
+        url: `https://api.mappinest.com/v1/tiles/mappinest.COUNTIES.json?key=${apiKey}`
+      });
+
+      glMap.addLayer({
+        id: 'mappinest-counties-fill',
+        type: 'fill',
+        source: 'mappinest-counties',
+        'source-layer': sourceLayer,
+        paint: {
+          'fill-color': '#2563eb',
+          'fill-opacity': 0.28
+        }
+      });
+
+      glMap.addLayer({
+        id: 'mappinest-counties-outline',
+        type: 'line',
+        source: 'mappinest-counties',
+        'source-layer': sourceLayer,
+        paint: {
+          'line-color': '#1d4ed8',
+          'line-width': 1
+        }
+      });
+    }
+
+    if (glMap.isStyleLoaded()) {
+      addCountriesLayer();
+    } else {
+      glMap.once('load', addCountriesLayer);
+    }
+  </script>
+</body>
+</html>
