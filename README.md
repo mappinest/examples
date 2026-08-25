@@ -15,17 +15,17 @@ These examples show the two main integration paths:
 | --- | --- | --- |
 | MapLibre GL JS | Load map style | `examples/maplibre-gl-js/stylejson-map-style` |
 | MapLibre GL JS | Uploaded vector tileset | `examples/maplibre-gl-js/uploaded-vector-tileset` |
-| MapLibre GL JS | Uploaded raster tiles | `examples/maplibre-gl-js/uploaded-raster-tiles` |
+| MapLibre GL JS | Uploaded raster tileset | `examples/maplibre-gl-js/uploaded-raster-tileset` |
 | Mapbox GL JS | Load map style | `examples/mapbox-gl-js/stylejson-map-style` |
 | Mapbox GL JS | Uploaded vector tileset | `examples/mapbox-gl-js/uploaded-vector-tileset` |
-| Mapbox GL JS | Uploaded raster tiles | `examples/mapbox-gl-js/uploaded-raster-tiles` |
+| Mapbox GL JS | Uploaded raster tileset | `examples/mapbox-gl-js/uploaded-raster-tileset` |
 | OpenLayers | Load map style | `examples/openlayers/stylejson-map-style` |
 | OpenLayers | Uploaded vector tileset | `examples/openlayers/uploaded-vector-tileset` |
-| OpenLayers | Uploaded raster tiles | `examples/openlayers/uploaded-raster-tiles` |
+| OpenLayers | Uploaded raster tileset | `examples/openlayers/uploaded-raster-tileset` |
 | Leaflet | Load map style | `examples/leaflet/stylejson-map-style` |
 | Leaflet | Uploaded vector tileset | `examples/leaflet/uploaded-vector-tileset` |
 | Leaflet | Leaflet.VectorGrid vector tileset | `examples/leaflet/leaflet-vectorgrid` |
-| Leaflet | Uploaded raster tiles | `examples/leaflet/uploaded-raster-tiles` |
+| Leaflet | Uploaded raster tileset | `examples/leaflet/uploaded-raster-tileset` |
 
 ## Run locally
 
