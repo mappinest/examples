@@ -47,7 +47,7 @@
       // Apply the Mappinest map style before adding the uploaded tileset layer.
       await window.olms.apply(
         map,
-        `https://api.mappinest.com/v1/styles/light/style.json?key=${apiKey}`
+        `https://api.mappinest.com/v1/maps/light/style.json?key=${apiKey}`
       );
 
       const layer = new ol.layer.VectorTile({

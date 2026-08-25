@@ -6,7 +6,7 @@ Use this repo with the [Mappinest map client guides](https://www.mappinest.com/d
 
 These examples show the two main integration paths:
 
-- Map Styles API through StyleJSON URLs.
+- Maps API through StyleJSON URLs.
 - Tiles API through TileJSON and direct XYZ tile URLs.
 
 ## Examples
@@ -57,5 +57,5 @@ allow `localhost` in the key policy or use a temporary development key.
 
 - Mappinest docs: https://www.mappinest.com/docs
 - Tiles API: https://www.mappinest.com/docs/tiles-api
-- Map Styles API: https://www.mappinest.com/docs/styles-api
+- Maps API: https://www.mappinest.com/docs/maps-api
 - Guides: https://www.mappinest.com/docs/guides
