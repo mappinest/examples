@@ -12,25 +12,12 @@ These examples show the three main integration paths:
 
 ## Examples
 
-| Map client | Example | Path |
-| --- | --- | --- |
-| MapLibre GL JS | Load map style | `examples/maplibre-gl-js/stylejson-map-style` |
-| MapLibre GL JS | Uploaded vector tileset | `examples/maplibre-gl-js/uploaded-vector-tileset` |
-| MapLibre GL JS | Uploaded raster tileset | `examples/maplibre-gl-js/uploaded-raster-tileset` |
-| MapLibre GL JS | Editable GeoJSON Dataset | `examples/maplibre-gl-js/dataset-geojson` |
-| Mapbox GL JS | Load map style | `examples/mapbox-gl-js/stylejson-map-style` |
-| Mapbox GL JS | Uploaded vector tileset | `examples/mapbox-gl-js/uploaded-vector-tileset` |
-| Mapbox GL JS | Uploaded raster tileset | `examples/mapbox-gl-js/uploaded-raster-tileset` |
-| Mapbox GL JS | Editable GeoJSON Dataset | `examples/mapbox-gl-js/dataset-geojson` |
-| OpenLayers | Load map style | `examples/openlayers/stylejson-map-style` |
-| OpenLayers | Uploaded vector tileset | `examples/openlayers/uploaded-vector-tileset` |
-| OpenLayers | Uploaded raster tileset | `examples/openlayers/uploaded-raster-tileset` |
-| OpenLayers | Editable GeoJSON Dataset | `examples/openlayers/dataset-geojson` |
-| Leaflet | Load map style | `examples/leaflet/stylejson-map-style` |
-| Leaflet | Uploaded vector tileset | `examples/leaflet/uploaded-vector-tileset` |
-| Leaflet | Leaflet.VectorGrid vector tileset | `examples/leaflet/leaflet-vectorgrid` |
-| Leaflet | Uploaded raster tileset | `examples/leaflet/uploaded-raster-tileset` |
-| Leaflet | Editable GeoJSON Dataset | `examples/leaflet/dataset-geojson` |
+| Map client | Examples |
+| --- | --- |
+| MapLibre GL JS | [Map style](examples/maplibre-gl-js/stylejson-map-style/index.html) · [Vector tiles](examples/maplibre-gl-js/uploaded-vector-tileset/index.html) · [Raster tiles](examples/maplibre-gl-js/uploaded-raster-tileset/index.html) · [GeoJSON dataset](examples/maplibre-gl-js/dataset-geojson/index.html) |
+| Mapbox GL JS | [Map style](examples/mapbox-gl-js/stylejson-map-style/index.html) · [Vector tiles](examples/mapbox-gl-js/uploaded-vector-tileset/index.html) · [Raster tiles](examples/mapbox-gl-js/uploaded-raster-tileset/index.html) · [GeoJSON dataset](examples/mapbox-gl-js/dataset-geojson/index.html) |
+| OpenLayers | [Map style](examples/openlayers/stylejson-map-style/index.html) · [Vector tiles](examples/openlayers/uploaded-vector-tileset/index.html) · [Raster tiles](examples/openlayers/uploaded-raster-tileset/index.html) · [GeoJSON dataset](examples/openlayers/dataset-geojson/index.html) |
+| Leaflet | [Map style](examples/leaflet/stylejson-map-style/index.html) · [Vector tiles](examples/leaflet/uploaded-vector-tileset/index.html) · [VectorGrid](examples/leaflet/leaflet-vectorgrid/index.html) · [Raster tiles](examples/leaflet/uploaded-raster-tileset/index.html) · [GeoJSON dataset](examples/leaflet/dataset-geojson/index.html) |
 
 ## Run locally
 
