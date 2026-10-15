@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mappinest Dataset GeoJSON with MapLibre GL JS</title>
+  <link href="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.css" rel="stylesheet" />
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; width: 100vw; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/maplibre-gl@5/dist/maplibre-gl.js"></script>
+  <script>
+    const apiKey = 'YOUR_MAPPINEST_KEY';
+    const datasetId = 'mappinest.world-cities';
+
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: `https://api.mappinest.com/v1/maps/light/style.json?key=${apiKey}`,
+      center: [0, 20],
+      zoom: 2
+    });
+
+    map.addControl(new maplibregl.NavigationControl(), 'top-right');
+
+    map.on('load', async () => {
+      const response = await fetch(
+        `https://api.mappinest.com/v1/datasets/${datasetId}.geojson?key=${encodeURIComponent(apiKey)}`
+      );
+
+      if (!response.ok) {
+        throw new Error('Dataset GeoJSON request failed.');
+      }
+
+      map.addSource('mappinest-dataset', {
+        type: 'geojson',
+        data: await response.json()
+      });
+
+      map.addLayer({
+        id: 'dataset-points',
+        type: 'circle',
+        source: 'mappinest-dataset',
+        paint: {
+          'circle-color': '#2563eb',
+          'circle-radius': 6,
+          'circle-stroke-color': '#ffffff',
+          'circle-stroke-width': 1.5
+        }
+      });
+    });
+  </script>
+</body>
+</html>

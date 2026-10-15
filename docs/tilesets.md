@@ -1,6 +1,6 @@
 # Tilesets
 
-Uploaded tilesets are usually referenced by tileset Id.
+Uploaded tilesets are referenced by their tileset ID. Find it in the **Tileset ID** column on the [Tilesets page](https://www.mappinest.com/console/tilesets) in the Mappinest Console.
 
 Example:
 
