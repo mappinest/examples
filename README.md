@@ -33,12 +33,9 @@ Start the local preview server:
 npm run dev
 ```
 
-Open one of the example folders from the Vite local server. Get a free Mappinest API key from [API Keys & Access](https://www.mappinest.com/console/keys),
-then replace `YOUR_MAPPINEST_KEY`.
-The uploaded vector examples use `mappinest.COUNTIES`, and the uploaded raster examples use
-`mappinest.countries-raster` as sample tilesets. Dataset examples use
-`mappinest.world-cities` as the read-only sample. Replace it with the exact Dataset ID from
-your console when working with your own data.
+Open one of the example folders from the Vite local server. Get a free Mappinest API key from [API Keys & Access](https://www.mappinest.com/console/keys), then replace `YOUR_MAPPINEST_KEY`.
+
+The examples use public Mappinest samples. `mappinest.COUNTIES` is a vector tileset, `mappinest.countries-raster` is a raster tileset, and `mappinest.world-cities` is a dataset. Any valid API key can read them, and requests count toward the usage of that key. Replace the sample IDs with your own tileset or Dataset IDs to load your data.
 
 ## API keys
 
